@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Users, Lightbulb, Target, ChevronRight, Bot, Cpu, Network, Shield, TrendingUp, Clock, Award } from 'lucide-react';
+import { Brain, Users, Lightbulb, Target, ChevronRight, Bot, Cpu, Network, Shield, TrendingUp, Clock, Award, AlertCircle, DollarSign, UserX } from 'lucide-react';
 
 function App() {
   return (
@@ -86,25 +86,43 @@ function App() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              Выгоды от сотрудничества с <span className="text-cyan-400">Cyber Lab</span>
+              Какие <span className="text-cyan-400">проблемы решаем</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-              Партнерство с нами открывает новые горизонты развития и конкурентные преимущества
+              Наши AI-решения устраняют ключевые болевые точки современного бизнеса
             </p>
           </div>
 
           <div className="grid sm:grid-cols-3 gap-8">
             {[
-              { icon: <TrendingUp className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400" />, title: "Рост эффективности", desc: "Увеличение производительности до 300%" },
-              { icon: <Clock className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400" />, title: "Быстрый результат", desc: "Внедрение решений за 2-4 недели" },
-              { icon: <Award className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400" />, title: "Гарантия качества", desc: "99.9% точность AI-моделей" }
+              { 
+                icon: <AlertCircle className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400" />, 
+                title: "Ошибки и простои", 
+                desc: "Снижаем человеческий фактор на 95% и предотвращаем дорогостоящие простои",
+                solution: "AI-мониторинг 24/7"
+              },
+              { 
+                icon: <DollarSign className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400" />, 
+                title: "Высокие расходы", 
+                desc: "Сокращаем операционные затраты до 60% через умную автоматизацию",
+                solution: "Оптимизация процессов"
+              },
+              { 
+                icon: <UserX className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400" />, 
+                title: "Отток клиентов", 
+                desc: "Повышаем удержание на 40% с помощью предиктивной аналитики",
+                solution: "AI-персонализация"
+              }
             ].map((benefit, index) => (
-              <div key={index} className="text-center p-6">
-                <div className="inline-block p-4 bg-[#012337] rounded-full mb-4">
+              <div key={index} className="bg-[#012337] p-6 rounded-xl hover:bg-[#012d47] transition group">
+                <div className="inline-block p-4 bg-[#011627] rounded-full mb-4 group-hover:scale-110 transition-transform">
                   {benefit.icon}
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">{benefit.title}</h3>
-                <p className="text-sm sm:text-base text-gray-400">{benefit.desc}</p>
+                <p className="text-sm sm:text-base text-gray-400 mb-4">{benefit.desc}</p>
+                <div className="text-cyan-400 text-sm font-medium">
+                  Решение: {benefit.solution}
+                </div>
               </div>
             ))}
           </div>
